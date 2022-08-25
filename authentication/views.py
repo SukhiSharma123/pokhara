@@ -122,8 +122,6 @@ def verify_otp(request):
     print(email)
     if User.objects.filter(email=email).exists():
         user_obj = User.objects.get(email=email)
-        print(user_obj.otp)
-        print(data.get('otp'))
         if int(user_obj.otp) == data.get('otp'):
             user_obj.is_verified = True
             # user_obj.set_password = data.get('set_password')
@@ -147,3 +145,25 @@ class InitialPasswordView(UpdateAPIView):
         user = serializer.save()
         return Response(status=status.HTTP_200_OK)
     
+@api_view(['POST'])
+@permission_classes([AllowAny])
+@csrf_exempt
+def resent_otp(request):
+    data = request.data
+    email = data.get('email')
+    if User.objects.filter(email=email).exists():
+        user_obj = User.objects.get(email=email)
+        otp = random.randint(100000, 999999)
+        # email_body = 'Hi ' + str(email) + \
+        #     ' Use the link below to verify your email \n' + str(otp)
+        # data = {'email_body': email_body, 'to_email': email,
+        #         'email_subject': ' to verify email '}
+
+        # Util.send_email(data)
+        user_obj.otp = otp
+        user_obj.save()
+        content = {'Message': 'Otp Send.'}
+        return Response(content, status=status.HTTP_200_OK)
+    else:
+        content = {'Message': 'Email does not exist'}
+        return Response(content, status=status.HTTP_404_NOT_FOUND)
