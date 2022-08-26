@@ -94,7 +94,8 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
     "https://relaxed-curie-e9a516.netlify.app",
     "http://127.0.0.1:8080",
-    "http://127.0.0.1:8000"
+    "http://127.0.0.1:8000",
+    "http://localhost:1419"
 ]
 
 CORS_ORIGIN_REGEX_WHITELIST = [
@@ -104,10 +105,12 @@ CORS_ORIGIN_REGEX_WHITELIST = [
 CORS_ALLOWED_ORIGINS = [
     "http://read.only.com",
     "http://change.allowed.com",
+    "http://localhost:1419",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://change.allowed.com",
+    "http://localhost:1419",
 ]
 
 
