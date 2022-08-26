@@ -104,7 +104,7 @@ class LoginView(views.APIView):
                 'email': email,
                 'token': token,
                 'user_id': userid,
-                'userrole': user_role
+                'userrole': user_role,
             }
             return response
 
@@ -167,3 +167,4 @@ def resent_otp(request):
     else:
         content = {'Message': 'Email does not exist'}
         return Response(content, status=status.HTTP_404_NOT_FOUND)
+
