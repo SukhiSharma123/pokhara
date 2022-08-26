@@ -88,31 +88,59 @@ DATABASES = {
     }
 }
 
-CORS_ALLOWED_ORIGINS_ALL = True
+# CORS_ALLOWED_ORIGINS_ALL = True
 
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
-    "https://relaxed-curie-e9a516.netlify.app",
-    "http://127.0.0.1:8080",
-    "http://127.0.0.1:8000",
-    "http://localhost:1419"
-]
+# CORS_ORIGIN_WHITELIST = [
+#     "http://localhost:3000",
+#     "https://relaxed-curie-e9a516.netlify.app",
+#     "http://127.0.0.1:8080",
+#     "http://127.0.0.1:8000",
+#     "http://localhost:1419/"
+# ]
 
-CORS_ORIGIN_REGEX_WHITELIST = [
-    r"^https://\w+\.netlify\.app$",
-]
+# CORS_ORIGIN_REGEX_WHITELIST = [
+#     r"^https://\w+\.netlify\.app$",
+# ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://read.only.com",
-    "http://change.allowed.com",
-    "http://localhost:1419",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://read.only.com",
+#     "http://change.allowed.com",
+#     "http://localhost:1419/",
+# ]
+
+# CSRF_TRUSTED_ORIGINS = [
+#     "http://change.allowed.com",
+#     "http://localhost:1419/",
+# ]
+
+
+CORS_ALLOW_ALL_ORIGINS=False
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://change.allowed.com",
+    "http://yourwhitelistedip.com",
     "http://localhost:1419",
 ]
 
+CORS_ALLOW_METHODS = [
+'DELETE',
+'GET',
+'OPTIONS',
+'PATCH',
+'POST',
+'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
