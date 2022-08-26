@@ -119,6 +119,9 @@ CORS_ALLOW_ALL_ORIGINS=False
 CSRF_TRUSTED_ORIGINS = [
     "http://yourwhitelistedip.com",
     "http://localhost:1419",
+    "http://10.0.2.2:8000",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
 
 CORS_ALLOW_METHODS = [
